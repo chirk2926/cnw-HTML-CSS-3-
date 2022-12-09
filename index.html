@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cnwレンタルサーバー</title>
+    <link rel="stylesheet" href="stylesheet
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>cnwレンタルサーバー</title>
+        <link rel="stylesheet" href="stylesheet.css">
+      </head>
+      <body>
+        <div class="header">
+          <div class="header-logo">chirknetwork</div>
+          <div class="header-list">
+            <ul>
+              <li><a href="join.html">Join</a></li>
+              <li><a href="service.html">Service</a></li>
+              <li><a href="join.html">Support</a></li>
+              <li><a href="status.html">Status</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="main">
+          <div class="copy-container">
+            <h2>chirknetworkServer</h2>
+            <h3>cnwレンタルサーバーサービス</h3>
+          </div>
+          
+          <div class="contents">
+            <h3 class="section-title">Service</h3>
+            <div class="contents-item">
+              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/html.svg">
+              <h2>GameServer</h2>
+              <p>自動構築　短期間利用向けの<br>安価サーバー</br></p>
+            </div>
+            <div class="contents-item">
+              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/php.svg">
+              <h2>FreeServer</h2>
+              <p>無料で使用できる<br>ゲームサーバー</br></p>
+            </div>
+            <div class="contents-item">
+              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/ruby.svg">
+              <h2>LinuxServer</h2>
+              <p>でバック環境やプロキシに<br>使えるサーバー</br></p>
+            </div>
+            <div>
+            <h2>DDos緩和</h2>
+            <p>CloudFlareのDDos緩和サービス</p>
+            <h2>BungeeCord</h2>
+            <p>watterfallなどMinecraftプロキシサーバー</p>
+            <h2>LockServerSecurty</h2>
+            <p>LockMinecraftServerSecurty</p>
+            </div>
+          </div>
+          
+          
+        </div>
+    
+        <div class="footer">
+          <div class="footer-logo">chirknetwork</div>
+          <div class="footer-list">
+            <ul>
+              <li>組織概要</li>
+              <li>公式ホームページ</li>
+              <li>サポート・お問い合わせ</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="topScroll" class="topIcon" onclick="goTop()">Top</div>
+        <style type="text/css">
+          .topIcon {
+            display       : inline-block;
+            position      : fixed;       /* ボタン固定 */
+            bottom        : 20px;        /* 下から位置 */
+            right         : 20px;        /* 右から位置 */
+            padding       : 25px 25px;   /* 余白       */
+            background    : #000066;     /* 背景色     */
+            color         : #ffffff;     /* 文字色     */
+            opacity       : 0.5;         /* 透明度     */
+            font-size     : 11.5pt;        /* 文字サイズ */
+            font-weight   : bold;        /* 太字       */
+            line-height   : 1.2em;       /* 行の高さ   */
+            letter-spacing: 2px;         /* 文字間隔   */
+            text-align    : center;      /* 文字位置   */
+            cursor        : pointer;     /* カーソル   */
+            z-index       : 999;         /* 重ね順位   */
+          }
+          
+          .topIcon:hover {
+            opacity       : 0.9;   /* カーソル時透明度 */
+          }
+          </style>
+
+<script type="text/javascript">
+  var vGoTop = {};
+  function goTop(){
+   
+    vGoTop["coef"] = 50;  // ←滑らか係数（大きいほど滑らか）
+    vGoTop["cnt"]  = 0;
+   
+    // --- 現在のスクロール位置取得 -----
+    var startX = document.body.scrollLeft || document.documentElement.scrollLeft;
+    var startY = document.body.scrollTop  || document.documentElement.scrollTop;
+   
+    // --- スクロールの単位計算 ---------
+    var moveSplitCnt = 0;
+    for(var i = 1; i <= vGoTop["coef"]; i++) {
+      moveSplitCnt += i * i;
+    }
+    vGoTop["unitH"] = startY / ( moveSplitCnt * 2 );
+   
+    vGoTop["nextX"] = startX;
+    vGoTop["nextY"] = startY;
+   
+    // --- スクロール開始 ---------------
+    goTopLoop();
+  }
+  function goTopLoop(){
+   // ============================================================================
+   //  スクロール実行
+   // ============================================================================
+   
+    vGoTop["cnt"]++;
+   
+    // --- 次のスクロール位置計算 -------
+    var Coef = 0;
+    if(vGoTop["cnt"] <= vGoTop["coef"]){
+      Coef = vGoTop["cnt"];
+    }else{
+      Coef = ((vGoTop["coef"] * 2) + 1) - vGoTop["cnt"];
+    }
+    vGoTop["nextY"] = vGoTop["nextY"] - Math.round( vGoTop["unitH"] * ( Coef * Coef) );
+    if((vGoTop["cnt"] >= (vGoTop["coef"] * 2))||(vGoTop["nextY"] <= 0)){
+      vGoTop["nextY"] = 0;
+    }
+   
+    // --- スクロール実行 ---------------
+    window.scrollTo(vGoTop["nextX"], vGoTop["nextY"]);
+   
+    // --- 次のスクロールを設定 ---------
+    if(vGoTop["nextY"] <= 0){
+      clearTimeout(vGoTop["timer"]);                   // 終了：タイマクリア
+    }else{
+      vGoTop["timer"] = setTimeout("goTopLoop()",10);  // 次のループ
+    }
+  }
+  </script>
+
+<form name="myForm" action="xxx.cgi" onsubmit="return runOpen()">
+  <input type="submit" value="実行中の動きを確認する">
+</form>
+ 
+
+      </body>
+    </html>
+  
